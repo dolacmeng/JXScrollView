@@ -9,7 +9,6 @@ scroll.dataSource = self;
 [scroll start];
 
 2.实现数据源方法（至少实现以下两个）
-#pragma mark - 数据源
 //返回轮播图片数量
 -(NSInteger)numberOfItemInScrollView:(JXScrollView *)scrollView{
     return imageArr.count;
@@ -19,3 +18,6 @@ scroll.dataSource = self;
 -(NSURL*)scrollView:(JXScrollView *)scrollView urlForItemAtIndex:(NSInteger)index{
     return [NSURL URLWithString:imageArr[index]];
 }
+
+效果：
+![image](http://github.com/dolacmeng/JXScrollView/raw/master/viewpager.gif)
