@@ -15,7 +15,7 @@ scroll.dataSource = self;
     return imageArr.count;
 }
 
-//返回轮播的图片
+//返回轮播的图片url
 -(NSURL*)scrollView:(JXScrollView *)scrollView urlForItemAtIndex:(NSInteger)index{
     return [NSURL URLWithString:imageArr[index]];
 }
