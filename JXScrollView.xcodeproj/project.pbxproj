@@ -138,7 +138,7 @@
 		5D8D00AE1CC3CACA005DF8EB /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				5D8D00E11CC3CADC005DF8EB /* JXScrollViewLib */,
+				5DECC588228C3AD5000AE8C9 /* JXScrollView */,
 				5D8D00AF1CC3CAD4005DF8EB /* SDWebImage */,
 			);
 			name = libs;
@@ -184,7 +184,7 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		5D8D00E11CC3CADC005DF8EB /* JXScrollViewLib */ = {
+		5DECC588228C3AD5000AE8C9 /* JXScrollView */ = {
 			isa = PBXGroup;
 			children = (
 				5D8D00E21CC3CB11005DF8EB /* JXScrollView.h */,
@@ -192,7 +192,7 @@
 				5DECC585228C0FA6000AE8C9 /* JXScrollViewConfig.h */,
 				5DECC586228C0FA6000AE8C9 /* JXScrollViewConfig.m */,
 			);
-			name = JXScrollViewLib;
+			path = JXScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
