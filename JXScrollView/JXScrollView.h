@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger,JXScrollViewPageControlPosition){
-    JXScrollViewPageControlPositionLeft,
-    JXScrollViewPageControlPositionCenter,
-    JXScrollViewPageControlPositionRight
-};
+#import "JXScrollViewConfig.h"
 
 @class JXScrollView;
 
@@ -40,14 +35,11 @@ typedef NS_ENUM(NSInteger,JXScrollViewPageControlPosition){
 
 @interface JXScrollView : UIView
 
-@property (nonatomic, assign) BOOL hideIndicator;//设置隐藏加载菊花，默认显示
-@property (nonatomic, assign) double timeInterval;//设置播放时间间隔,默认3s
-@property (nonatomic, strong) UIColor *pageControlTintColor;//pageControl的颜色
-@property (nonatomic, strong) UIColor *pageIndicatorSelectedTintColor;//pageControl选中颜色
-@property (nonatomic, assign) JXScrollViewPageControlPosition pageControlPosition;//pageControl的位置
-@property (nonatomic, weak) id <JXScrollViewDataSource> dataSource;
-@property (nonatomic, weak) id <JXScrollViewDelegate> delegate;
+-(instancetype)initWithFrame:(CGRect)frame config:(JXScrollViewConfig*)config dataSource:(id<JXScrollViewDataSource>)dataSource delegate:(id<JXScrollViewDelegate>)delegate;
 
+@property (nonatomic, weak) id<JXScrollViewDataSource> dataSource;
+@property (nonatomic, weak) id<JXScrollViewDelegate> delegate;
+@property (nonatomic,strong) JXScrollViewConfig *config;
 
 -(void)start;
 

@@ -17,16 +17,33 @@
 
 @end
 
-
 @implementation JXScrollView
 
--(instancetype)initWithFrame:(CGRect)frame{
+-(instancetype)initWithFrame:(CGRect)frame config:(JXScrollViewConfig*)config dataSource:(id<JXScrollViewDataSource>)dataSource delegate:(id<JXScrollViewDelegate>)delegate {
     if (self == [super initWithFrame:frame]) {
         _scrollView = [[UIScrollView alloc] initWithFrame:(CGRect){{0,0},frame.size}];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator=NO;
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame)-32, frame.size.width, 37)];
-        _timeInterval = 3.0;
+        
+        _dataSource = dataSource;
+        _delegate = delegate;
+        self.config = config;
+        
+        _pageControl = [[UIPageControl alloc] init];
+        CGSize pageControlSize = [_pageControl sizeForNumberOfPages:[self.dataSource numberOfItemInScrollView:self]];
+        CGFloat pageControlX;
+        switch (self.config.jx_pageControlPosition) {
+            case JXScrollViewPageControlPositionLeft:
+                pageControlX = 10;break;
+            case JXScrollViewPageControlPositionCenter:
+                pageControlX = (self.bounds.size.width-pageControlSize.width)/2.0;break;
+            case JXScrollViewPageControlPositionRight:
+                pageControlX = self.bounds.size.width-pageControlSize.width-10;break;
+        }
+        _pageControl.frame = CGRectMake(pageControlX, self.bounds.size.height-pageControlSize.height, pageControlSize.width, pageControlSize.height);
+
+        _pageControl.pageIndicatorTintColor = self.config.jx_pageControlTintColor;
+        _pageControl.currentPageIndicatorTintColor = self.config.jx_pageIndicatorSelectedTintColor;
         [self addSubview:_scrollView];
         [self addSubview:_pageControl];
     }
@@ -35,7 +52,6 @@
 
 -(void)setPageControlTintColor:(UIColor *)tintColor{
     _pageControl.pageIndicatorTintColor = tintColor;
-//    [_pageControl setTintColor:tintColor];
 }
 
 -(void)setPageIndicatorSelectedTintColor:(UIColor *)tintColor{
@@ -81,7 +97,7 @@
         
         if ([self.dataSource respondsToSelector:@selector(scrollView:urlForItemAtIndex:)]) {
             
-            if (!_hideIndicator) {
+            if (!self.config.jx_hideIndicator) {
                 [self createActivityView:imageView];
             }
             
@@ -154,7 +170,7 @@
 //开启定时器
 -(void)addTimer{
     if (nil == _timer) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.config.jx_timeInterval target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
         //防止timer被阻塞
         [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
@@ -191,7 +207,15 @@
     if ([self.delegate respondsToSelector:@selector(scrollView:didClickAtIndex:)]) {
         [self.delegate scrollView:self didClickAtIndex:_pageControl.currentPage];
     }
+    
+}
 
+#pragma mark - getter
+-(JXScrollViewConfig*)config{
+    if (!_config) {
+        _config = [JXScrollViewConfig defalutConfig];
+    }
+    return _config;
 }
 
 @end

@@ -30,6 +30,7 @@
 		5D8D00E01CC3CAD5005DF8EB /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D00D01CC3CAD5005DF8EB /* UIView+WebCacheOperation.m */; };
 		5D8D00E41CC3CB11005DF8EB /* JXScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D00E31CC3CB11005DF8EB /* JXScrollView.m */; };
 		5D8D00E71CC3CB24005DF8EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8D00E61CC3CB24005DF8EB /* ViewController.m */; };
+		5DECC587228C0FA6000AE8C9 /* JXScrollViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DECC586228C0FA6000AE8C9 /* JXScrollViewConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		5D8D00E31CC3CB11005DF8EB /* JXScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXScrollView.m; sourceTree = "<group>"; };
 		5D8D00E51CC3CB24005DF8EB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5D8D00E61CC3CB24005DF8EB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5DECC585228C0FA6000AE8C9 /* JXScrollViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXScrollViewConfig.h; sourceTree = "<group>"; };
+		5DECC586228C0FA6000AE8C9 /* JXScrollViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXScrollViewConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 			children = (
 				5D8D00E21CC3CB11005DF8EB /* JXScrollView.h */,
 				5D8D00E31CC3CB11005DF8EB /* JXScrollView.m */,
+				5DECC585228C0FA6000AE8C9 /* JXScrollViewConfig.h */,
+				5DECC586228C0FA6000AE8C9 /* JXScrollViewConfig.m */,
 			);
 			name = JXScrollViewLib;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -263,6 +269,7 @@
 				5D8D00DE1CC3CAD5005DF8EB /* UIImageView+HighlightedWebCache.m in Sources */,
 				5D8D00D21CC3CAD5005DF8EB /* NSData+ImageContentType.m in Sources */,
 				5D8D00D81CC3CAD5005DF8EB /* SDWebImageManager.m in Sources */,
+				5DECC587228C0FA6000AE8C9 /* JXScrollViewConfig.m in Sources */,
 				5D8D00D61CC3CAD5005DF8EB /* SDWebImageDownloader.m in Sources */,
 				5D8D00DD1CC3CAD5005DF8EB /* UIImage+WebP.m in Sources */,
 				5D8D00E01CC3CAD5005DF8EB /* UIView+WebCacheOperation.m in Sources */,
@@ -432,6 +439,7 @@
 				5D8D00AD1CC3CAAD005DF8EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
